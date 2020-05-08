@@ -13,7 +13,7 @@ node {
     }
   
     stage('test'){
-        def myTestContainer = docker.image('ubuntu:18:04')
+        def myTestContainer = docker.image('ubuntu:18.04')
         myTestContainer.pull()
         myTestContainer.inside{
           sh 'pip install -r requirements-test.txt'
