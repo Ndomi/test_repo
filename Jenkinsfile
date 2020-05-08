@@ -1,12 +1,11 @@
 node {
-  agent {
-        dockerfile {
+  def commit_id 
+    stage ('Check'){
+      dockerfile { 
             filename 'Dockerfile.test-jenkins'
             args '-u root'
-        }
-  }
-  stages {
-    def commit_id
+      }
+    }
     stage('Preparation'){
       checkout scm
       sh "git rev-parse --short HEAD > .git/commit-id"
@@ -20,6 +19,5 @@ node {
           sh 'pip install -r requirements-test.txt'
           sh 'sh run_test.sh'
         }
-      }
-  }
+    }
 }
