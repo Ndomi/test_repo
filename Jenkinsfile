@@ -1,5 +1,4 @@
 pipeline {
-  def commit_id
   agent {
         dockerfile {
             filename 'Dockerfile.test-jenkins'
@@ -7,6 +6,7 @@ pipeline {
         }
   }
   stages {
+    def commit_id
     stage('Preparation'){
       checkout scm
       sh "git rev-parse --short HEAD > .git/commit-id"
