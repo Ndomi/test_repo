@@ -16,7 +16,7 @@ node {
         def myTestContainer = docker.image('ubuntu:18.04')
         myTestContainer.pull()
         myTestContainer.inside{
-          USER root
+          sh 'USER root'
           sh 'apt install python-pip -y'
           sh 'pip install -r requirements-test.txt'
           sh 'sh run_test.sh'
