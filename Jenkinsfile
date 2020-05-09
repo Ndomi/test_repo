@@ -13,10 +13,7 @@ node {
     }
   
     stage('test'){
-        def myTestContainer = docker.image('python:2.7.5')
-        myTestContainer.inside{
-          'sh 'pip install -r requirements-test.txt'
-          'sh run_test.sh'
-        }
+      'sh 'pip install -r requirements-test.txt'
+      'sh run_test.sh'
     }
 }
