@@ -5,12 +5,16 @@ pipeline {
 
   stages {
     stage('Preparation'){
-      checkout scm
-      sh "git rev-parse --short HEAD > .git/commit-id"
-      commit_id = readFile('.git/commit-id'.trim())
+      steps {
+        checkout scm
+        sh "git rev-parse --short HEAD > .git/commit-id"
+        commit_id = readFile('.git/commit-id'.trim())
+      }
     }
     stage('test'){
-      'sh run_test.sh'
+      steps {
+        'sh run_test.sh'
+      } 
     }
 
   }
