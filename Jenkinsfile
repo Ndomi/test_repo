@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'echo "Testing Complete"'
+        sh 'salt-master --version'
       } 
     }
 
