@@ -10,5 +10,3 @@ COPY run_test.sh ./
 RUN ./run_test.sh
 
 COPY . .
-
-#CMD [ "python", "./your-daemon-or-script.py" ]
