@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY requirements-test.txt ./
 RUN pip install --no-cache-dir -r requirements-test.txt
 
-COP run_test.sh ./
+COPY run_test.sh ./
 
 RUN ./run_test.sh
 
