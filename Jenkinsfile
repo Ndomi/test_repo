@@ -1,19 +1,17 @@
-node {
-  def commit_id 
-    stage ('Check'){
-      dockerfile { 
-            filename 'Dockerfile.test-jenkins'
-            args '-u root'
-      }
-    }
+pipeline {
+  agent {
+    dockerfile true
+  }
+
+  stages {
     stage('Preparation'){
       checkout scm
       sh "git rev-parse --short HEAD > .git/commit-id"
       commit_id = readFile('.git/commit-id'.trim())
     }
-  
     stage('test'){
-      def myTestContainer = docker.image('my-python-app')
       'sh run_test.sh'
     }
+
+  }
 }
