@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'salt-master --version'
+        sh 'build_test.sh'
       } 
     }
 
