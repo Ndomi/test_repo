@@ -13,7 +13,7 @@ node {
     }
   
     stage('test'){
-      'sh 'pip install -r requirements-test.txt'
+      'sh pip install -r requirements-test.txt'
       'sh run_test.sh'
     }
 }
